@@ -25,6 +25,7 @@ func multiply(in <- chan int) <- chan int {
 			fmt.Printf("Calculated %d from %d\n", i*i, i)
 			out <- i*i
 		}
+		close(out)
 	}()
 
 	return out
